@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp - Chats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .bg-whatsapp {
+            background-color: #128C7E;
+        }
+        .chat-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen">
+    <header class="bg-white shadow-md px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" 
+                 class="w-10 h-10 rounded-full object-cover" 
+                 alt="Profile">
+            <span class="ml-3 font-medium">My Profile</span>
+        </div>
+        <div class="flex space-x-4">
+            <i class="fas fa-search text-gray-500"></i>
+            <i class="fas fa-ellipsis-v text-gray-500"></i>
+        </div>
+    </header>
+
+    <div class="px-4 mt-2">
+        <!-- Chat Items -->
+        <div class="chat-item py-3 border-b border-gray-200 flex items-center cursor-pointer">
+            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" 
+                 class="w-12 h-12 rounded-full object-cover" 
+                 alt="Contact">
+            <div class="ml-3 flex-1">
+                <div class="flex justify-between">
+                    <span class="font-medium">Sarah Johnson</span>
+                    <span class="text-xs text-gray-500">10:30 AM</span>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <span class="text-sm text-gray-500 truncate">Hey, how are you doing?</span>
+                    <span class="text-xs bg-green-500 text-white rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-item py-3 border-b border-gray-200 flex items-center cursor-pointer">
+            <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg" 
+                 class="w-12 h-12 rounded-full object-cover" 
+                 alt="Contact">
+            <div class="ml-3 flex-1">
+                <div class="flex justify-between">
+                    <span class="font-medium">Work Group</span>
+                    <span class="text-xs text-gray-500">Yesterday</span>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <span class="text-sm text-gray-500 truncate">Meeting at 3pm tomorrow</span>
+                    <i class="fas fa-check-double text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-item py-3 border-b border-gray-200 flex items-center cursor-pointer">
+            <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" 
+                 class="w-12 h-12 rounded-full object-cover" 
+                 alt="Contact">
+            <div class="ml-3 flex-1">
+                <div class="flex justify-between">
+                    <span class="font-medium">Alex Smith</span>
+                    <span class="text-xs text-gray-500">7/20/23</span>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <span class="text-sm text-gray-500 truncate">Let's catch up this weekend</span>
+                    <i class="fas fa-check-double text-blue-500"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group Chat Item -->
+        <div class="chat-item group-chat py-3 border-b border-gray-200 flex items-center cursor-pointer">
+            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                 class="w-12 h-12 rounded-full object-cover border border-gray-200" 
+                 alt="Group">
+            <div class="ml-3 flex-1">
+                <div class="flex justify-between">
+                    <span class="font-medium">Dev Team</span>
+                    <span class="text-xs text-gray-500">2:15 PM</span>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <span class="text-sm text-gray-500 truncate">John: Let's discuss the project</span>
+                    <span class="bg-blue-500 text-white px-1.5 py-0.5 rounded-full text-[10px]">3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group Chat Item -->
+        <div class="chat-item group-chat py-3 border-b border-gray-200 flex items-center cursor-pointer">
+            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                 class="w-12 h-12 rounded-full object-cover border border-gray-200" 
+                 alt="Group">
+            <div class="ml-3 flex-1">
+                <div class="flex justify-between">
+                    <span class="font-medium">Family Group</span>
+                    <span class="text-xs text-gray-500">Yesterday</span>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <span class="text-sm text-gray-500 truncate">Mom: Dinner at 7pm</span>
+                    <span class="bg-blue-500 text-white px-1.5 py-0.5 rounded-full text-[10px]">5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Chat Button -->
+    <div class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-lg cursor-pointer">
+        <i class="fas fa-users text-xl"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
