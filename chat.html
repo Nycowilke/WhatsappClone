@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp - Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .message-sent {
+            background-color: #DCF8C6;
+            border-radius: 1.125rem 1.125rem 0 1.125rem;
+        }
+        .message-received {
+            background-color: #FFFFFF;
+            border-radius: 1.125rem 1.125rem 1.125rem 0;
+        }
+        .chat-container {
+            background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+            background-repeat: repeat;
+            background-color: #e5ddd5;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+    <!-- Chat Header -->
+    <header class="bg-gray-100 px-4 py-3 flex items-center border-b border-gray-300">
+        <a href="chat-list.html" class="mr-2">
+            <i class="fas fa-arrow-left text-gray-600"></i>
+        </a>
+        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" 
+             class="w-10 h-10 rounded-full object-cover" 
+             alt="Contact">
+        <div class="ml-3 flex-1">
+            <div class="font-medium">Sarah Johnson</div>
+            <div class="text-xs text-gray-500">Online</div>
+        </div>
+        <div class="flex space-x-4">
+            <i class="fas fa-search text-gray-600"></i>
+            <i class="fas fa-ellipsis-v text-gray-600"></i>
+        </div>
+    </header>
+
+    <!-- Messages Container -->
+    <div class="chat-container flex-1 p-4 overflow-y-auto">
+        <!-- Date Divider -->
+        <div class="text-center my-4">
+            <span class="bg-white px-2 py-1 rounded-full text-xs text-gray-500">TODAY</span>
+        </div>
+
+        <!-- Received Message -->
+        <div class="flex mb-4">
+            <div class="message-received px-4 py-2 shadow max-w-xs">
+                <div>Hey there! How are you doing?</div>
+                <div class="text-right mt-1">
+                    <span class="text-xs text-gray-500">10:30 AM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sent Message -->
+        <div class="flex justify-end mb-4">
+            <div class="message-sent px-4 py-2 shadow max-w-xs">
+                <div>I'm doing great! Just working on this WhatsApp clone.</div>
+                <div class="text-right mt-1">
+                    <span class="text-xs text-gray-500">10:32 AM</span>
+                    <i class="fas fa-check-double text-blue-500 ml-1"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Received Message -->
+        <div class="flex mb-4">
+            <div class="message-received px-4 py-2 shadow max-w-xs">
+                <div>That's awesome! Can I see it when you're done?</div>
+                <div class="text-right mt-1">
+                    <span class="text-xs text-gray-500">10:33 AM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Input -->
+    <div class="bg-gray-100 p-3 flex items-center">
+        <div class="flex space-x-2 mr-2">
+            <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <i class="fas fa-smile text-gray-500"></i>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <i class="fas fa-paperclip text-gray-500"></i>
+            </button>
+        </div>
+        <input type="text" 
+               placeholder="Type a message" 
+               class="flex-1 py-2 px-4 rounded-full bg-white focus:outline-none">
+        <button class="w-10 h-10 rounded-full bg-green-500 text-white ml-2 flex items-center justify-center">
+            <i class="fas fa-microphone"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
