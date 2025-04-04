@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp - Group Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .message-group {
+            background-color: #F8F9FA;
+            border-radius: 1.125rem;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .participants-panel {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+    <!-- Group Chat Header -->
+    <header class="bg-gray-100 px-4 py-3 flex items-center border-b border-gray-300">
+        <a href="chat-list.html" class="mr-2">
+            <i class="fas fa-arrow-left text-gray-600"></i>
+        </a>
+        <div class="ml-3 flex-1">
+            <div class="font-medium">Dev Team</div>
+            <div class="text-xs text-gray-500">4 participants</div>
+        </div>
+        <button id="participantsBtn" class="ml-4">
+            <i class="fas fa-users text-gray-600"></i>
+        </button>
+    </header>
+
+    <!-- Participants Panel -->
+    <div class="participants-panel hidden fixed right-0 top-14 w-64 bg-white shadow-lg h-[calc(100vh-56px)]">
+        <div class="p-3 border-b border-gray-200 flex justify-between items-center">
+            <span class="font-medium">Participants (4)</span>
+            <button class="text-gray-500">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <div class="p-3 overflow-y-auto">
+            <div class="flex items-center mb-3">
+                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" 
+                     class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <div class="font-medium">John Doe</div>
+                    <div class="text-xs text-gray-500">Admin</div>
+                </div>
+            </div>
+            <div class="flex items-center mb-3">
+                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" 
+                     class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <div class="font-medium">Sarah Johnson</div>
+                    <div class="text-xs text-gray-500">Member</div>
+                </div>
+            </div>
+            <div class="flex items-center mb-3">
+                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg" 
+                     class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <div class="font-medium">Alex Smith</div>
+                    <div class="text-xs text-gray-500">Member</div>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" 
+                     class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <div class="font-medium">You</div>
+                    <div class="text-xs text-gray-500">Member</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="flex-1 p-4 overflow-y-auto bg-gray-50">
+        <!-- Date Divider -->
+        <div class="text-center my-4">
+            <span class="bg-white px-2 py-1 rounded-full text-xs text-gray-500">TODAY</span>
+        </div>
+
+        <!-- Group Message -->
+        <div class="mb-4">
+            <div class="message-group">
+                <div class="font-medium">John Doe</div>
+                <div>Hey team! Let's discuss the new project requirements.</div>
+                <div class="text-right mt-1 text-xs text-gray-500">10:15 AM</div>
+            </div>
+        </div>
+
+        <!-- Group Message -->
+        <div class="mb-4">
+            <div class="message-group">
+                <div class="font-medium">Sarah Johnson</div>
+                <div>I've reviewed the requirements and have some suggestions.</div>
+                <div class="text-right mt-1 text-xs text-gray-500">10:18 AM</div>
+            </div>
+        </div>
+
+        <!-- Your Message -->
+        <div class="mb-4 flex justify-end">
+            <div class="bg-blue-100 rounded-lg px-4 py-2 max-w-xs">
+                <div>I'll prepare a presentation for our next meeting.</div>
+                <div class="text-right mt-1 text-xs text-gray-500">10:20 AM <i class="fas fa-check-double text-blue-500 ml-1"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Input -->
+    <div class="bg-gray-100 p-3 flex items-center">
+        <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-2">
+            <i class="fas fa-at text-gray-500"></i>
+        </button>
+        <input type="text" 
+               placeholder="Type a message" 
+               class="flex-1 py-2 px-4 rounded-full bg-white focus:outline-none">
+        <button class="w-10 h-10 rounded-full bg-green-500 text-white ml-2 flex items-center justify-center video-call-btn">
+            <i class="fas fa-video"></i>
+        </button>
+        <button class="w-10 h-10 rounded-full bg-green-500 text-white ml-2 flex items-center justify-center">
+            <i class="fas fa-microphone"></i>
+        </button>
+    </div>
+
+    <!-- Video Call Modal -->
+    <div class="video-modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="video-container bg-white rounded-lg p-4 w-full max-w-4xl">
+            <div class="participant-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                <!-- Video tiles will be added here dynamically -->
+            </div>
+            <div class="controls flex justify-center space-x-4 bg-gray-100 p-3 rounded-lg">
+                <button class="toggle-camera p-3 rounded-full bg-white hover:bg-gray-200 transition">
+                    <i class="fas fa-video text-gray-600"></i>
+                </button>
+                <button class="toggle-mic p-3 rounded-full bg-white hover:bg-gray-200 transition">
+                    <i class="fas fa-microphone text-gray-600"></i>
+                </button>
+                <button class="end-call p-3 rounded-full bg-red-100 hover:bg-red-200 text-red-600 transition">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
